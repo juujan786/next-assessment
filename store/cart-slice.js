@@ -1,18 +1,24 @@
-'use client'
+"use client";
 import { createSlice } from "@reduxjs/toolkit";
 
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
-    items: localStorage.getItem("items")
-      ? JSON.parse(localStorage.getItem("items"))
-      : [],
-    totalQuantity: localStorage.getItem("totalQuantity")
-      ? JSON.parse(localStorage.getItem("totalQuantity"))
-      : 0,
-    totalPrice: localStorage.getItem("totalPrice")
-      ? JSON.parse(localStorage.getItem("totalPrice"))
-      : 0,
+    items:
+      // localStorage.getItem("items")
+      //   ? JSON.parse(localStorage.getItem("items"))
+      //   :
+      [],
+    totalQuantity:
+      // localStorage.getItem("totalQuantity")
+      //   ? JSON.parse(localStorage.getItem("totalQuantity"))
+      //   :
+      0,
+    totalPrice:
+      // localStorage.getItem("totalPrice")
+      //   ? JSON.parse(localStorage.getItem("totalPrice"))
+      //   :
+      0,
   },
   reducers: {
     addItemToCart: (state, action) => {
@@ -36,12 +42,12 @@ const cartSlice = createSlice({
       }
       state.totalQuantity++;
       state.totalPrice += newItem.price;
-      localStorage.setItem("items", JSON.stringify(state.items));
-      localStorage.setItem(
-        "totalQuantity",
-        JSON.stringify(state.totalQuantity)
-      );
-      localStorage.setItem("totalPrice", JSON.stringify(state.totalPrice));
+      // localStorage.setItem("items", JSON.stringify(state.items));
+      // localStorage.setItem(
+      //   "totalQuantity",
+      //   JSON.stringify(state.totalQuantity)
+      // );
+      // localStorage.setItem("totalPrice", JSON.stringify(state.totalPrice));
     },
 
     removeItemFromCart: (state, action) => {
@@ -58,12 +64,12 @@ const cartSlice = createSlice({
       }
       state.totalQuantity--;
       state.totalPrice -= existingItem.price;
-      localStorage.setItem("items", JSON.stringify(state.items));
-      localStorage.setItem(
-        "totalQuantity",
-        JSON.stringify(state.totalQuantity)
-      );
-      localStorage.setItem("totalPrice", JSON.stringify(state.totalPrice));
+      // localStorage.setItem("items", JSON.stringify(state.items));
+      // localStorage.setItem(
+      //   "totalQuantity",
+      //   JSON.stringify(state.totalQuantity)
+      // );
+      // localStorage.setItem("totalPrice", JSON.stringify(state.totalPrice));
     },
   },
 });
